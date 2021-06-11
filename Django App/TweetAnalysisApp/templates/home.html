@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Django homepage</title>
+    </head>
+    <body>
+        <h1>
+            <form method="POST" action="{% url 'home' %}"> {% csrf_token %}
+                <input type="text" name="next" value="{{ request.POST.next }}">
+                <input type="submit" value="analyze!">
+            </form>
+        </h1>
+        <h2>Sentiment is: {{data}}</h2>
+    </body>
+</html>

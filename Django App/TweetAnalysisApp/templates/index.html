@@ -1,0 +1,64 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A basic sentiment analyzer app using Tensorflow, Keras and Django.">
+    <meta name="author" content="Truptirekha Priyadarshani">
+    <link rel="icon" href="http://example.com/favicon.ico">
+
+    <title>Sentiment Analyzer</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" type="text/css">
+
+    <!-- Custom styles for this template -->
+    {% load static %}
+    <link href="{% static "cover.css" %}" rel="stylesheet" type="text/css">
+  </head>
+
+  <body class="text-center">
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h1 class="masthead-brand"> &#128512; Sentiment Analyzer App &#128530;</h1>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+        <form method="POST" action="{% url 'home' %}"> {% csrf_token %}
+      <div class="mb-3">
+    <label for="inputtextbox" class="form-label">Use it to quickly detect sentiment in text data. Play around with our </br> sentiment analyzer, below:</label>
+    <input type="text" class="form-control" autocomplete="off" placeholder="Type here..." id="inputtextbox" name="next" value="{{ request.POST.next }}">
+   </div>
+    <button type="submit" class="btn btn-primary">Classify Text</button>
+</form>
+
+<div class="typewriter" style="position: relative; top: 50px;">
+  <h1>{{data}}</h1>
+</div>
+       
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>Made with ❤</a>, by <a href="linkedin.com/in/truptirekha-priyadarshani-337690117">@Truptirekha Priyadarshani</a>.</p>
+        </div>
+      </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
